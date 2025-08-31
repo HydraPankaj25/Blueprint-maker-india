@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint Maker India - Professional Floor Plan Designer</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/themes.css">
+
+    <!-- External Libraries -->
+    <script src="libs/jspdf.min.js"></script>
+    <script src="libs/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">🏗️</div>
+            <h1>Blueprint Maker India</h1>
+            <p>Professional Floor Plan Designer</p>
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Initializing components...</p>
+        </div>
+    </div>
+
+    <!-- Get Started Page -->
+    <div id="getStartedPage" class="get-started-page hidden">
+        <div class="get-started-container">
+            <div class="get-started-header">
+                <div class="logo-section">
+                    <div class="app-logo">🏗️</div>
+                    <h1>Blueprint Maker India</h1>
+                    <p>Create professional floor plans with AI-powered suggestions</p>
+                </div>
+            </div>
+
+            <div class="get-started-content">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Professional Drawing Tools</h3>
+                        <p>Advanced canvas with shapes, measurements, and grid system</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>AI-Powered Suggestions</h3>
+                        <p>Get intelligent design recommendations and compliance checks</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">📏</div>
+                        <h3>Indian Standards</h3>
+                        <p>Built-in support for NBC codes and Vastu principles</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Export & Share</h3>
+                        <p>Download PDF, images, or share directly to WhatsApp</p>
+                    </div>
+                </div>
+
+                <div class="setup-section">
+                    <h2>Quick Setup</h2>
+                    <div class="setup-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Project Name</label>
+                                <input type="text" id="initialProjectName" placeholder="My New Blueprint"
+                                    value="My New Blueprint">
+                            </div>
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="text" id="initialLocation" placeholder="City, State">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Plot Size (sq.ft)</label>
+                                <input type="number" id="initialPlotSize" placeholder="2400">
+                            </div>
+                            <div class="form-group">
+                                <label>Building Type</label>
+                                <select id="initialBuildingType">
+                                    <option value="residential">Residential</option>
+                                    <option value="commercial">Commercial</option>
+                                    <option value="mixed">Mixed Use</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="api-setup">
+                            <h3>🤖 AI Assistant Setup (Optional)</h3>
+                            <div class="form-group">
+                                <label>ChatGPT API Key</label>
+                                <input type="password" id="initialApiKey" placeholder="sk-...">
+                                <small>Get your API key from <a href="https://platform.openai.com/api-keys"
+                                        target="_blank">OpenAI Platform</a></small>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn btn-primary btn-large" onclick="startNewProject()">
+                                🚀 Start New Project
+                            </button>
+                            <button class="btn btn-secondary btn-large" onclick="loadExistingProject()">
+                                📂 Load Existing Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="app-container hidden">
+        <!-- Sidebar Component -->
+        <div class="sidebar" id="sidebar">
+            <!-- Content will be loaded by Sidebar.js -->
+        </div>
+
+        <!-- Toolbar Component -->
+        <div class="toolbar" id="toolbar">
+            <!-- Content will be loaded by Toolbar.js -->
+        </div>
+
+        <!-- Canvas Component -->
+        <div class="canvas-container" id="canvasContainer">
+            <!-- Content will be loaded by CanvasDrawing.js -->
+        </div>
+
+        <!-- Scale Display Component -->
+        <div class="scale-display" id="scaleDisplay">
+            <!-- Content will be loaded by ScaleDisplay.js -->
+        </div>
+
+        <!-- ChatGPT Panel Component -->
+        <div class="chatgpt-panel" id="chatgptPanel">
+            <!-- Content will be loaded by ChatGPTPanel.js -->
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notifications"></div>
+
+    <!-- Component Scripts -->
+    <script src="config/app-config.js"></script>
+    <script src="config/api-config.js"></script>
+
+    <!-- Utility Scripts -->
+    <script src="js/utils/measurements.js"></script>
+    <script src="js/utils/chatgpt.js"></script>
+    <script src="js/utils/whatsapp.js"></script>
+    <script src="js/utils/pdf-export.js"></script>
+    <script src="js/utils/validators.js"></script>
+
+    <!-- Data Scripts -->
+    <script src="js/data/indian-standards.js"></script>
+    <script src="js/data/suggestions.js"></script>
+    <script src="js/data/templates.js"></script>
+
+    <!-- Component Scripts -->
+    <script src="js/components/DataManager.js"></script>
+    <script src="js/components/CanvasDrawing.js"></script>
+    <script src="js/components/Toolbar.js"></script>
+    <script src="js/components/Sidebar.js"></script>
+    <script src="js/components/ScaleDisplay.js"></script>
+    <script src="js/components/AreaCalculator.js"></script>
+    <script src="js/components/ChatGPTPanel.js"></script>
+    <script src="js/components/ExportOptions.js"></script>
+
+    <!-- Main Application Script -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
